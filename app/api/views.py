@@ -85,5 +85,6 @@ class ImageResizeViewSet(viewsets.ViewSet):
 
         resized_image.picture = 'images/{}'.format(resized_image.name)
         resized_image.parent_picture = parent_image.id
+        resized_image.url = parent_image.url
         resized_image.save()
         return Response(ImageSerializer(resized_image).data)
